@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... params) {
-            String query = "%7B%0A%20%20allFilms%20%7B%0A%20%20%20%20totalCount%0A%20%20%7D%0A%20%20allPeople%20%7B%0A%20%20%20%20totalCount%0A%20%20%7D%0A%7D&operationName=null";
             String graphQLRequest = "{ allFilms { totalCount } allPeople { totalCount } }";
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("http://graphql-swapi.parseapp.com")
