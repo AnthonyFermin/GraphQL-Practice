@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                             return chain.proceed(request);
                         }
                     }).build())
-                    .addConverterFactory(LoganSquareConverterFactory.create())
+                    .addConverterFactory(com.github.aurae.retrofit2.LoganSquareConverterFactory.create())
                     .build();
 
             SwapiAPI swapiAPI = retrofit.create(SwapiAPI.class);
