@@ -28,7 +28,7 @@ public class Beautifier {
                 indentCount++;
                 indent(beautifiedJson, indentCount);
             } else if (!withinQuotes && current == ',') {
-                beautifiedJson.append('\n');
+                indent(beautifiedJson, indentCount);
             }
         }
         return beautifiedJson.toString();
