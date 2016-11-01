@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.anthonyfermin.GraphQLObject;
 import com.fuzz.anthonyfermin.starwarsgraphql.model.GraphQLResponse;
 
 import java.io.IOException;
@@ -20,10 +21,12 @@ import retrofit2.Retrofit;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
+@GraphQLObject
 public class MainActivity extends AppCompatActivity {
 
     private GraphQLRequestTask requestTask;
 
+    @GraphQLObject
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         requestTask = new GraphQLRequestTask();
     }
 
+    @GraphQLObject
     public void onClick(View v) {
         if (requestTask != null) {
             requestTask.cancel(true);

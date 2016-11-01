@@ -20,7 +20,7 @@ public class GraphQLProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
         StringBuilder builder = new StringBuilder()
-                .append("package com.anthonyfermin.GraphQLObject.generated;\n\n")
+                .append("package com.anthonyfermin.graphqljavaclient.generated;\n\n")
                 .append("public class GeneratedClass {\n\n") // open class
                 .append("\tpublic String getMessage() {\n") // open method
                 .append("\t\treturn \"");
@@ -44,7 +44,7 @@ public class GraphQLProcessor extends AbstractProcessor {
 
 
         try { // write the file
-            JavaFileObject source = processingEnv.getFiler().createSourceFile("com.anthonyfermin.GraphQLObject.generated.GeneratedClass");
+            JavaFileObject source = processingEnv.getFiler().createSourceFile("com.anthonyfermin.graphqljavaclient.generated.GeneratedClass");
 
 
             Writer writer = source.openWriter();

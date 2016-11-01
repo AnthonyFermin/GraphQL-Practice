@@ -37,3 +37,10 @@ dependencies {
     compile 'com.bluelinelabs:logansquare:1.3.7'
     compile 'com.github.aurae.retrofit2:converter-logansquare:1.4.1'
 }
+
+task processorTask(type: Exec) {
+    commandLine 'cp', '../graphqljavaclient/build/libs/graphqljavaclient.jar', 'libs/'
+}
+
+processorTask.dependsOn(':graphqljavaclient:build')
+preBuild.dependsOn(processorTask)
