@@ -4,6 +4,7 @@ package com.fuzz.anthonyfermin.starwarsgraphql.model;
 import com.bluelinelabs.logansquare.LoganSquare;
 import com.bluelinelabs.logansquare.annotation.JsonField;
 import com.bluelinelabs.logansquare.annotation.JsonObject;
+import com.fuzz.anthonyfermin.starwarsgraphql.Beautifier;
 
 import java.io.IOException;
 
@@ -29,6 +30,7 @@ public class GraphQLResponse {
         String string = "";
         try {
             string = LoganSquare.mapperFor(GraphQLData.class).serialize(data);
+            string = Beautifier.beautify(string);
         } catch (IOException e) {
             e.printStackTrace();
         }

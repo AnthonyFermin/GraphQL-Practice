@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">StarWarsGraphQL</string>
+    <string name="execute">Execute</string>
 </resources>
