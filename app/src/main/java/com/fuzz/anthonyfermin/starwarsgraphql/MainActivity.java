@@ -26,16 +26,19 @@ public class MainActivity extends AppCompatActivity {
 
     private GraphQLRequestTask requestTask;
 
+    TextView textView;
     @GraphQLObject
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         requestTask = new GraphQLRequestTask();
+        textView = (TextView) findViewById(R.id.text);
     }
 
     @GraphQLObject
     public void onClick(View v) {
+        textView.setText(R.string.Loading);
         if (requestTask != null) {
             requestTask.cancel(true);
         }
@@ -83,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             if (s != null) {
-                TextView textView = (TextView) findViewById(R.id.text);
                 textView.setText(s);
             }
         }
