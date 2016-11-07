@@ -30,8 +30,6 @@ public class GraphQLProcessor extends AbstractProcessor {
         for (Element element : roundEnvironment.getElementsAnnotatedWith(GraphQLObject.class)) {
             String objectType = element.getSimpleName().toString();
 
-
-
             // this is appending to the return statement
             builder.append(objectType).append(" says hello!\\n");
         }
