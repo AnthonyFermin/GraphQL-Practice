@@ -34,10 +34,3 @@ dependencies {
     compile 'com.github.aurae.retrofit2:converter-logansquare:1.4.1'
     compile files('libs/graphQLQueryGen.jar')
 }
-
-task processorTask(type: Exec) {
-    commandLine 'cp', '../graphqljavaclient/build/libs/graphqljavaclient.jar', 'libs/'
-}
-
-processorTask.dependsOn(':graphqljavaclient:build')
-preBuild.dependsOn(processorTask)

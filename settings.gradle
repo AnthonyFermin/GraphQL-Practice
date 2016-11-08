@@ -1,1 +1,1 @@
-include ':app', ':graphqljavaclient'
+include ':app'
