@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.anthonyfdev.graphQLQueryGen.models.GraphQL_GraphQLData;
 import com.fuzz.anthonyfermin.starwarsgraphql.model.GraphQLResponse;
 
 import java.io.IOException;
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... params) {
-            String graphQLRequest = "{ allFilms { totalCount } allPeople { totalCount } }";
+            String graphQLRequest = GraphQL_GraphQLData.getQuery();
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("http://graphql-swapi.parseapp.com")
                     .client(new OkHttpClient.Builder().addInterceptor(new Interceptor() {
