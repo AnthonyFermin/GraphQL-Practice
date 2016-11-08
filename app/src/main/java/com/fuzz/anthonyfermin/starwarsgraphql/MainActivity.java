@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.anthonyfdev.graphQLQueryGen.models.GraphQL_GraphQLData;
 import com.fuzz.anthonyfermin.starwarsgraphql.model.GraphQLResponse;
 
 import java.io.IOException;
@@ -24,14 +25,17 @@ public class MainActivity extends AppCompatActivity {
 
     private GraphQLRequestTask requestTask;
 
+    TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         requestTask = new GraphQLRequestTask();
+        textView = (TextView) findViewById(R.id.text);
     }
 
     public void onClick(View v) {
+        textView.setText(R.string.Loading);
         if (requestTask != null) {
             requestTask.cancel(true);
         }
@@ -43,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... params) {
-            String graphQLRequest = "{ allFilms { totalCount } allPeople { totalCount } }";
+            String graphQLRequest = GraphQL_GraphQLData.getQuery();
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("http://graphql-swapi.parseapp.com")
                     .client(new OkHttpClient.Builder().addInterceptor(new Interceptor() {
@@ -79,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             if (s != null) {
-                TextView textView = (TextView) findViewById(R.id.text);
                 textView.setText(s);
             }
         }

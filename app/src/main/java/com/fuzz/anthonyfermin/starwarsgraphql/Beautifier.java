@@ -19,12 +19,12 @@ public class Beautifier {
             if (withinQuotes && current == '\\') {
                 i++;
                 break;
-            } else if (!withinQuotes && current == '}') {
+            } else if (!withinQuotes && current == '}' || current == ']') {
                 indentCount--;
                 indent(beautifiedJson, indentCount);
             }
             beautifiedJson.append(current);
-            if (!withinQuotes && current == '{') {
+            if (!withinQuotes && current == '{' || current == '[') {
                 indentCount++;
                 indent(beautifiedJson, indentCount);
             } else if (!withinQuotes && current == ',') {
