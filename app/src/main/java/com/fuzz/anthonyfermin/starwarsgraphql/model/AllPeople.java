@@ -13,22 +13,22 @@ import com.bluelinelabs.logansquare.annotation.JsonObject;
 @JsonObject
 public class AllPeople {
 
-    @GraphQLField
+    @GraphQLField(type = "totalCount")
     @JsonField
-    private int totalCount;
+    private int count;
 
-    public int getTotalCount() {
-        return totalCount;
+    public int getCount() {
+        return count;
     }
 
-    public void setTotalCount(int totalCount) {
-        this.totalCount = totalCount;
+    public void setCount(int count) {
+        this.count = count;
     }
 
     @Override
     public String toString() {
         return "AllPeople{" +
-                "totalCount=" + totalCount +
+                "count=" + count +
                 '}';
     }
 }

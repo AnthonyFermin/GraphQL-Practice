@@ -21,6 +21,9 @@ public class GraphQLData {
     @JsonField
     private AllPeople allPeople;
 
+    @JsonField
+    private Person luke;
+
     public AllFilms getAllFilms() {
         return allFilms;
     }
@@ -35,6 +38,14 @@ public class GraphQLData {
 
     public void setAllPeople(AllPeople allPeople) {
         this.allPeople = allPeople;
+    }
+
+    public Person getLuke() {
+        return luke;
+    }
+
+    public void setLuke(Person luke) {
+        this.luke = luke;
     }
 
     @Override
