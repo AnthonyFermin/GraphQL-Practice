@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... params) {
             String graphQLRequest = GraphQL_GraphQLData.getQuery();
+            Log.d("QUERY", graphQLRequest);
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("http://graphql-swapi.parseapp.com")
                     .client(new OkHttpClient.Builder().addInterceptor(new Interceptor() {

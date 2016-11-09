@@ -1,5 +1,6 @@
 package com.fuzz.anthonyfermin.starwarsgraphql.model;
 
+import com.anthonyfdev.graphQLQueryGen.GraphQLField;
 import com.anthonyfdev.graphQLQueryGen.GraphQLObject;
 import com.bluelinelabs.logansquare.annotation.JsonField;
 import com.bluelinelabs.logansquare.annotation.JsonObject;
@@ -12,6 +13,7 @@ import com.bluelinelabs.logansquare.annotation.JsonObject;
 @JsonObject
 public class AllPeople {
 
+    @GraphQLField
     @JsonField
     private int totalCount;
 
